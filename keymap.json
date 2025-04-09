@@ -1,0 +1,139 @@
+[
+  {
+    "context": "vim_operator == none && !VimWaiting &&  vim_mode != insert",
+    "bindings": {
+      "space g": [
+        "task::Spawn",
+        {
+          "lazygit": "Open lazygit"
+        }
+      ],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-q": "command_palette::Toggle",
+      "shift-f": "editor::UnfoldLines",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "alt-j": "editor::MoveLineDown",
+      "alt-k": "editor::MoveLineUp",
+      "space f": "file_finder::Toggle",
+      "space c": "pane::CloseActiveItem",
+      "space t": "workspace::NewCenterTerminal",
+      "space e": "project_panel::ToggleFocus",
+      "space p e": "workspace::ToggleLeftDock",
+      "space q": "pane::CloseAllItems",
+      "ctrl-space": "workspace::ToggleBottomDock",
+      // LSP
+      "space l s": "project_symbols::Toggle",
+      "space l i": "editor::GoToImplementationSplit",
+      "space l r": "editor::Rename",
+      "space s t": "workspace::NewSearch",
+      //Buffers
+      "space b l": "pane::CloseItemsToTheRight",
+      "space b h": "pane::CloseItemsToTheLeft",
+      "space b a": "pane::ReopenClosedItem",
+      //Folding
+      "space z f": ["workspace::SendKeystrokes", "shift-v shift-f ctrl-c"],
+      "space z a": [
+        "workspace::SendKeystrokes",
+        "g g shift-v shift-g shift-f ctrl-c g g"
+      ], // Fold all
+      "space z u": [
+        "workspace::SendKeystrokes",
+        "g g shift-v shift-g space z z ctrl-c g g"
+      ], // Unfold all
+      //Toggle Comments
+      "space /": "editor::ToggleComments",
+      "space r": "command_palette::Toggle",
+      "space w": "workspace::Save",
+      "space 1": ["pane::ActivateItem", 0],
+      "space 2": ["pane::ActivateItem", 1],
+      "space 3": ["pane::ActivateItem", 2],
+      "space 4": ["pane::ActivateItem", 3],
+      "space 5": ["pane::ActivateItem", 4],
+      "space 6": ["pane::ActivateItem", 5],
+      "space 7": ["pane::ActivateItem", 6],
+      "space 8": ["pane::ActivateItem", 7]
+    }
+  },
+  // I dont know why this works!
+  {
+    "context": "Workspace && !VimWaiting &&  vim_mode != insert",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "Dock",
+    "bindings": {}
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-space": "workspace::ToggleBottomDock",
+      "ctrl-o": "workspace::NewTerminal",
+      "ctrl-a": ["workspace::SendKeystrokes", "ctrl-k ctrl-o"],
+      "ctrl-n": ["workspace::SendKeystrokes", "ctrl-tab"],
+      "ctrl-p": ["workspace::SendKeystrokes", "ctrl-shift-tab"],
+      "ctrl-k": ["workspace::SendKeystrokes", "ctrl-alt-t"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !menu",
+    "bindings": {
+      "shift-k": "editor::MoveLineUp",
+      "shift-j": "editor::MoveLineDown",
+      "shift-f": "editor::Fold",
+      "alt zio": "editor::UnfoldLines",
+      "space z z": [
+        "workspace::SendKeystrokes",
+        "alt zio ctrl-c h % shift-i ctrl-c"
+      ],
+      "space /": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "jk": "vim::NormalBefore",
+      "kj": "vim::NormalBefore",
+      "j k": "vim::NormalBefore",
+      "k j": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "ProjectPanel && !VimWaiting && vim_mode != insert",
+    "bindings": {
+      "a": "project_panel::NewFile",
+      "d": "project_panel::RemoveFromProject",
+      "r": "project_panel::Rename",
+      "space e": "workspace::ActivatePaneRight"
+    }
+  },
+  {
+    "context": "Workspace && !VimWaiting && vim_mode != insert",
+    "bindings": {
+      "space r p": "projects::OpenRecent" // Open recent projects
+    }
+  },
+  {
+    "context": "(Editor ||  ProjectPanel || Terminal) && vim_mode != insert && !VimWaiting",
+    "bindings": {
+      "ctrl-right": "vim::ResizePaneRight", // Shrink right border
+      "ctrl-left": "vim::ResizePaneLeft", // Expand right border
+      "ctrl-up": "vim::ResizePaneDown", // Expand upward
+      "ctrl-down": "vim::ResizePaneUp" // Shrink downward
+    }
+  },
+  {
+    "context": "Editor && vim_mode != insert && !VimWaiting",
+    "bindings": {
+      "space l j": "editor::GoToDiagnostic" // Go to the next LSP issue
+    }
+  }
+]
