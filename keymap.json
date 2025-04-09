@@ -107,7 +107,7 @@
     }
   },
   {
-    "context": "ProjectPanel && !VimWaiting && vim_mode != insert",
+    "context": "!renaming && ProjectPanel && !VimWaiting && vim_mode != insert && !editing",
     "bindings": {
       "a": "project_panel::NewFile",
       "d": "project_panel::RemoveFromProject",
@@ -122,7 +122,7 @@
     }
   },
   {
-    "context": "(Editor ||  ProjectPanel || Terminal) && vim_mode != insert && !VimWaiting",
+    "context": "(Editor ||  ProjectPanel || Terminal) && vim_mode != insert && !VimWaiting && !editing",
     "bindings": {
       "ctrl-right": "vim::ResizePaneRight", // Shrink right border
       "ctrl-left": "vim::ResizePaneLeft", // Expand right border
