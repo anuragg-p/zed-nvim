@@ -1,0 +1,102 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+//
+{
+  "telemetry": {
+    "diagnostics": false
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "base_keymap": "VSCode",
+  "vim_mode": true,
+  "ui_font_size": 16,
+  "buffer_font_size": 14,
+  "buffer_line_height": { "custom": 1.3 },
+  "current_line_highlight": "line",
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Catppuccin Macchiato"
+  },
+  "scrollbar": {
+    "show": "never",
+    "cursors": false,
+    "git_diff": true,
+    "search_results": true,
+    "selected_symbol": true,
+    "diagnostics": "all"
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": false,
+    "enable_preview_from_code_navigation": false
+  },
+  "centered_layout": {
+    "left_padding": 0.1,
+    "right_padding": 0.1
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "jupyter": {
+    "kernel_selections": {
+      "python": "conda-env",
+      "typescript": "node",
+      "javascript": "node",
+      "r": "ark"
+    }
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["pylsp", "ruff"],
+      "format_on_save": "on"
+    },
+    "typescript": {
+      "language_servers": ["tsserver", "prettier", "!eslint"],
+      "format_on_save": "on"
+    },
+    "typescriptreact": {
+      "language_servers": ["tsserver", "prettier", "!eslint"],
+      "format_on_save": "on"
+    },
+    "javascriptreact": {
+      "language_servers": ["tsserver", "prettier", "!eslint"],
+      "format_on_save": "on"
+    },
+    "javascript": {
+      "language_servers": ["tsserver", "prettier", "!eslint"],
+      "format_on_save": "on"
+    },
+    "html": {
+      "language_servers": ["tsserver", "prettier", "!eslint"],
+      "format_on_save": "on"
+    }
+  },
+  "lsp": {
+    "pylsp": {
+      "settings": {
+        "pylsp.plugins.pylsp_django": {
+          "enabled": true
+        },
+        "pylsp.plugins.jedi_completion": {
+          "include_params": true
+        }
+      }
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {}
+      }
+    }
+  }
+}
