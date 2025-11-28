@@ -1,0 +1,36 @@
+ [ {
+    "label": "mkroot",
+    "command": "mkroot; exec $SHELL -i", // exec $SHELL -i will just create a new shell so you can use the shell afterwards
+    "args": [],
+    "cwd": "$ZED_DIRNAME",
+    "shell": "system",
+    "use_new_terminal": false,
+    "reveal": "always",
+    "hide": "never",
+    "allow_concurrent_runs": true,
+    "show_summary": false
+  }
+ ]
+
+// # Put this in your .zshrc (macos) or .bashrc (linux)
+// mkroot() {
+//   local path="$PWD"
+//   local prev_path=""
+//   while [[ ! -f "$path/Makefile" && "$path" != / ]]; do
+//     prev_path="$path"
+//     path="${path%/*}"
+//     [[ "$path" = "$prev_path" ]] && {  return 1 }
+//   done
+//   if [[ -f "$path/Makefile" ]]; then
+//     cd "$path"
+//     if [[ "$OSTYPE" == "darwin"* ]]; then
+//       export PATH="/usr/bin:/bin:/usr/sbin:/usr/local/bin:/opt/homebrew/bin:/usr/local/sbin:/Library/Apple/usr/bin"
+//     else  # Linux
+//       export PATH="/usr/bin:/bin:/usr/sbin:/usr/local/bin:/opt/bin:/usr/local/sbin"
+//     fi
+//     make dev
+//   else
+//     echo "Makefile not found in ancestors (staying in $PWD)"
+//   fi
+// }
+
